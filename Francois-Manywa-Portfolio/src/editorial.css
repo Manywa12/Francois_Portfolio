@@ -1,0 +1,171 @@
+/* Greeting, soft-focus previews and five distinct project compositions. */
+.site-header.on-home { position: fixed; color: #fff; mix-blend-mode: difference; }
+.nav-center:has(.greeting) { left: 0; letter-spacing: normal; }
+.greeting { display: flex; justify-content: center; gap: clamp(15px, 2vw, 32px); font-size: 16px; line-height: 1; padding: 9px 0; }
+.greeting > span { display: inline-block; transform: translateY(7px); }
+.greeting > span:nth-child(even) { transform: translateY(-7px); }
+.intro-overlay { background: #fff; color: var(--ink); gap: clamp(30px, 5vw, 80px); }
+.intro-overlay > span { font-size: clamp(30px, 3vw, 50px); font-weight: 400; }
+.intro-overlay small { display: none; }
+.hero-preview { transition: transform .7s cubic-bezier(.22,.61,.36,1); }
+.hero-preview img { transition: filter .8s ease, transform 1s cubic-bezier(.22,.61,.36,1); }
+@media (hover: hover) and (pointer: fine) {
+  .hero-preview img { filter: blur(9px); transform: scale(1.06); }
+  .hero-preview:hover img, .hero-preview:focus-visible img { filter: blur(0); transform: scale(1); }
+  .hero-preview:focus-visible { transform: rotate(0); }
+}
+.project-scene .scene-image { right: auto; bottom: auto; }
+.project-scene .scene-title { right: auto; text-shadow: 0 2px 22px #0008; }
+.project-scene .main-image::after { background: linear-gradient(180deg, transparent, #0002 70%); }
+.scene-title h3 { font-size: clamp(52px, 6.5vw, 120px); }
+.scene-title > .eyebrow { font-size: 12px; }
+.scene-subtitle { margin-top: 20px; }
+.count-left { top: 18%; left: 8%; }
+.count-right { bottom: 17%; right: 8%; }
+/* 01: cinematic frames crossing under a central title. */
+.scene-0 .main-image { left: 2%; top: 30%; width: 41%; height: 48%; }
+.scene-0 .secondary-image { left: 65%; top: 25%; width: 31%; height: 33%; }
+.scene-0 .tertiary-image { left: 35%; top: 54%; width: 35%; height: 36%; }
+.scene-0 .scene-title { left: 27%; top: 37%; }
+/* 02: a landscape, botanical detail and aerial inset. */
+.scene-1 .main-image { left: 31%; top: 19%; width: 60%; height: 56%; }
+.scene-1 .secondary-image { left: 5%; top: 46%; width: 29%; height: 40%; }
+.scene-1 .tertiary-image { left: 64%; top: 67%; width: 23%; height: 25%; }
+.scene-1 .scene-title { left: 16%; top: 34%; }
+/* 03: staggered vertical strips. */
+.scene-2 .main-image { left: 6%; top: 28%; width: 24%; height: 62%; }
+.scene-2 .secondary-image { left: 36%; top: 12%; width: 26%; height: 65%; }
+.scene-2 .tertiary-image { left: 71%; top: 23%; width: 23%; height: 64%; }
+.scene-2 .scene-title { left: 28%; top: 38%; }
+.scene-2 .scene-title h3 { font-size: 8vw; color: #fea800; }
+/* 04: complete website captures in their original proportions. */
+.scene-3 .main-image { left: 8%; top: 17%; width: 49%; height: auto; aspect-ratio: 1.498; }
+.scene-3 .secondary-image { left: 67%; top: 38%; width: 28%; height: auto; aspect-ratio: 1.498; }
+.scene-3 .tertiary-image { left: 23%; top: 65%; width: 31%; height: auto; aspect-ratio: 1.498; }
+.scene-3 .scene-title { left: 30%; top: 36%; }
+.scene-3 .scene-title h3 { font-size: 6.5vw; }
+/* 05: open space, opposing portraits and a small frame below the title. */
+.scene-4 .main-image { left: 74%; top: 14%; width: 20%; height: 51%; }
+.scene-4 .secondary-image { left: 6%; top: 56%; width: 21%; height: 36%; }
+.scene-4 .tertiary-image { left: 31%; top: 72%; width: 18%; height: 21%; }
+.scene-4 .scene-title { left: 28%; top: 34%; }
+.scene-4 .scene-title h3 { font-size: 7.5vw; }
+.scene-4 .scene-title h3 > span { margin-left: 10vw; }
+.scene-4 .main-image img { object-position: 35% center; }
+.scene-4 .secondary-image img { object-position: 70% center; }
+.scene-4 .tertiary-image img { object-position: center; }
+.website-capture img { object-fit: contain; }
+.detail-hero:has(.website-capture) { max-width: 1348px; margin-left: auto; margin-right: auto; width: 85%; }
+.detail-hero:has(.website-capture) .project-visual,
+.project-gallery:has(.website-capture) .project-visual { aspect-ratio: 1.498; }
+@media (max-width: 768px) {
+  .greeting { font-size: 12px; gap: 12px; padding: 7px 0; }
+  .greeting > span { transform: translateY(5px); }
+  .greeting > span:nth-child(even) { transform: translateY(-5px); }
+  .project-scene .scene-title { left: 8%; right: 5%; top: 39%; }
+  .scene-title h3, .scene-2 .scene-title h3, .scene-3 .scene-title h3, .scene-4 .scene-title h3 { font-size: 12vw; line-height: .94; }
+  .scene-title > .eyebrow { font-size: 10px; }
+  .scene-subtitle { margin-top: 14px; }
+  .scene-0 .main-image { left: 0; top: 27%; width: 77%; height: 35%; }
+  .scene-0 .secondary-image { left: 62%; top: 18%; width: 34%; height: 21%; }
+  .scene-0 .tertiary-image { left: 39%; top: 63%; width: 57%; height: 24%; }
+  .scene-1 .main-image { left: 18%; top: 23%; width: 82%; height: 41%; }
+  .scene-1 .secondary-image { left: 0; top: 53%; width: 43%; height: 30%; }
+  .scene-1 .tertiary-image { left: 61%; top: 68%; width: 33%; height: 18%; }
+  .scene-2 .main-image { left: 3%; top: 31%; width: 28%; height: 53%; }
+  .scene-2 .secondary-image { left: 36%; top: 19%; width: 29%; height: 55%; }
+  .scene-2 .tertiary-image { left: 71%; top: 30%; width: 26%; height: 53%; }
+  .scene-2 .scene-title { top: 42%; }
+  .scene-3 .main-image { left: 3%; top: 22%; width: 86%; height: auto; }
+  .scene-3 .secondary-image { left: 45%; top: 57%; width: 52%; height: auto; }
+  .scene-3 .tertiary-image { left: 6%; top: 72%; width: 48%; height: auto; }
+  .scene-3 .scene-title { top: 43%; }
+  .scene-4 .main-image { left: 70%; top: 21%; width: 27%; height: 35%; }
+  .scene-4 .secondary-image { left: 4%; top: 60%; width: 33%; height: 27%; }
+  .scene-4 .tertiary-image { left: 48%; top: 71%; width: 37%; height: 16%; }
+  .scene-4 .scene-title { top: 39%; }
+  .scene-4 .scene-title h3 > span { margin-left: 14vw; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-preview, .hero-preview img { transition: none; }
+}
+.scene-3 .scene-title { text-shadow: 0 2px 5px #000, 0 0 22px #000b; }
+@media (min-width: 769px) { .scene-3 .scene-title { left: 23%; } }
+@media (max-width: 768px) {
+  .scene-3 .scene-title { top: 37%; }
+  .scene-3 .secondary-image { top: 64%; }
+  .scene-3 .tertiary-image { top: 78%; }
+}
+/* Original interface exports, framed without resampling or altering their content. */
+.project-visual.interface-capture { height: auto; min-height: 0; max-height: none; aspect-ratio: var(--capture-ratio); background: #fff; }
+.interface-window { position: relative; width: 100%; overflow: hidden; }
+.project-visual .interface-window img { position: absolute; height: auto; max-width: none; object-fit: initial; object-position: initial; }
+.detail-hero:has(.interface-capture) { max-width: 1440px; margin-inline: auto; width: 85%; }
+.project-gallery .interface-capture { aspect-ratio: var(--capture-ratio); }
+.project-gallery .portrait-interface { width: min(100%, 393px); justify-self: center; }
+.hero-preview:has(.interface-capture) { aspect-ratio: auto; }
+.hero-preview .interface-capture { height: auto; }
+.scene-0 .scene-image, .scene-1 .scene-image, .scene-2 .scene-image { height: auto; overflow: hidden; box-shadow: 0 18px 60px #0004; }
+.scene-0 .main-image { left: 4%; top: 24%; width: 44%; }
+.scene-0 .secondary-image { left: 32%; top: 61%; width: 33%; }
+.scene-0 .tertiary-image { left: 72%; top: 18%; width: 22%; }
+.scene-0 .scene-title { left: 28%; top: 39%; }
+.scene-1 .main-image { left: 27%; top: 18%; width: 60%; }
+.scene-1 .secondary-image { left: 5%; top: 59%; width: 43%; }
+.scene-1 .tertiary-image { left: 76%; top: 51%; width: 12%; }
+.scene-1 .scene-title { left: 13%; top: 36%; }
+.scene-2 .main-image { left: 5%; top: 19%; width: 47%; }
+.scene-2 .secondary-image { left: 30%; top: 57%; width: 43%; }
+.scene-2 .tertiary-image { left: 78%; top: 22%; width: 16%; }
+.scene-2 .scene-title { left: 25%; top: 37%; }
+.scene-2 .scene-title h3 { color: #fea800; text-shadow: 0 2px 8px #000c; }
+@media (max-width: 768px) {
+  .scene-0 .main-image { left: 3%; top: 22%; width: 75%; }
+  .scene-0 .secondary-image { left: 7%; top: 68%; width: 56%; }
+  .scene-0 .tertiary-image { left: 69%; top: 53%; width: 28%; }
+  .scene-0 .scene-title { left: 8%; top: 44%; }
+  .scene-1 .main-image { left: 12%; top: 22%; width: 86%; }
+  .scene-1 .secondary-image { left: 3%; top: 66%; width: 62%; }
+  .scene-1 .tertiary-image { left: 73%; top: 53%; width: 23%; }
+  .scene-1 .scene-title { left: 8%; top: 41%; }
+  .scene-2 .main-image { left: 3%; top: 22%; width: 84%; }
+  .scene-2 .secondary-image { left: 4%; top: 66%; width: 63%; }
+  .scene-2 .tertiary-image { left: 72%; top: 51%; width: 25%; }
+  .scene-2 .scene-title { left: 8%; top: 42%; }
+}
+.scene-0 .scene-title, .scene-1 .scene-title, .scene-2 .scene-title { text-shadow: 0 2px 5px #000, 0 0 22px #000b; }
+.scene-0 .main-image::after, .scene-1 .main-image::after, .scene-2 .main-image::after { display: none; }
+/* About: one full-viewport portrait behind the complete editorial story. */
+.portrait-about { padding: 0; overflow: clip; isolation: isolate; background: transparent; }
+.about-backdrop { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: #260b19; }
+.about-backdrop img { position: absolute; inset: 0; width: 135%; max-width: none; height: 100%; object-fit: cover; object-position: center 64%; }
+.about-backdrop::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(31,7,20,.94) 0%, rgba(37,8,23,.83) 30%, rgba(40,10,25,.28) 65%, rgba(31,7,20,.36) 100%), linear-gradient(0deg, rgba(24,6,17,.8), transparent 65%); }
+.about-content { position: relative; padding: 0 7.5% 80px; }
+.about-portrait-intro { min-height: 100svh; padding: 150px 0 85px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+.portrait-about h1 { font-size: clamp(56px, 6.1vw, 98px); max-width: 56%; margin-top: 34px; line-height: 1.03; text-shadow: 0 2px 25px #18071044; }
+.portrait-about h1 span { color: #f4bacb; }
+.portrait-caption { position: absolute; bottom: 45px; right: 0; display: flex; flex-direction: column; gap: 9px; font-size: 10px; letter-spacing: .14em; text-align: right; }
+.portrait-about .about-intro { margin: 0; padding: 95px 0 110px; grid-template-columns: 1fr 1.15fr; max-width: 78%; }
+.portrait-about .about-intro > p { font: italic clamp(27px,3vw,44px)/1.18 var(--serif); }
+.portrait-about .about-columns { position: relative; gap: 6%; padding: 70px 0; }
+.portrait-about .about-columns::before { content: ''; position: absolute; inset: 0 -9vw; background: rgba(31,7,20,.76); z-index: -1; }
+.portrait-about .about-columns p { color: #fff5f8; }
+.portrait-about .about-end { padding-block: 120px 80px; margin-left: 10%; text-shadow: 0 2px 20px #180710; }
+@media (max-width: 768px) {
+  .about-backdrop img { width: 100%; object-position: 46% 74%; }
+  .about-backdrop::after { background: linear-gradient(180deg, rgba(31,7,20,.5) 0%, rgba(31,7,20,.2) 32%, rgba(31,7,20,.74) 57%, rgba(31,7,20,.92) 100%); }
+  .about-content { padding: 0 7% 40px; }
+  .about-portrait-intro { min-height: 100svh; padding: 130px 0 95px; justify-content: flex-end; }
+  .about-portrait-intro > .eyebrow { position: absolute; top: 125px; max-width: 65%; font-size: 10px; }
+  .portrait-about h1 { max-width: 100%; font-size: clamp(39px,10.7vw,76px); margin: 0; }
+  .portrait-caption { bottom: 30px; right: auto; left: 0; text-align: left; font-size: 8px; gap: 7px; }
+  .portrait-about .about-intro { display: block; max-width: 100%; padding: 60px 0 75px; }
+  .portrait-about .about-intro > p { font-size: 29px; margin-top: 28px; }
+  .portrait-about .about-columns { padding-block: 45px 15px; }
+  .portrait-about .about-columns::before { background: rgba(31,7,20,.72); }
+  .portrait-about .about-end { margin-left: 0; padding-block: 70px 45px; }
+}
+@media (max-width: 768px) {
+  .about-backdrop { overflow: hidden; }
+  .about-backdrop img { transform: scale(1.35); transform-origin: 46% 70%; }
+}
